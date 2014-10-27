@@ -1,5 +1,5 @@
-define clkperiodby2 5 // Required to generate 100 MHz clock.
-`include ‘romc_banno.v’ // Design file is romc.v and back annotated file is
+`define clkperiodby2 5 // Required to generate 100 MHz clock.
+//`include ‘romc_banno.v’ // Design file is romc.v and back annotated file is
 // romc_banno.v
 module romc_test ( dout1,
 dout2
@@ -39,7 +39,7 @@ addr2 = 3'b000 ;
 #40 // Run for some more time
 $stop ; // before stopping the simulation.
 end
-324 Design of Memories
+
 always
 #`clkperiodby2 clk <= ~clk ; // Generate 100 MHz clock.
 endmodule
