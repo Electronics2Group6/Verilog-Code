@@ -22,6 +22,11 @@ initial
 begin
 	clk = 1'b0 ;
 	// Read the ROM contents for all combinations of addresses.
+	
+	$monitor ("time: %t, dout1=%h%h%h%h, , dout2=%h%h%h%h",$time,
+	dout1[63:48],dout1[47:32],dout1[31:16],dout1[15:0],
+	dout2[63:48],dout2[47:32],dout2[31:16],dout2[15:0]);
+	
 	#7 		addr1 = 3'b000;
 			  addr2 = 3'b111;
 	#10 	addr1 = 3'b001;
