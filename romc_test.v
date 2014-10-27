@@ -1,4 +1,4 @@
-define clkperiodby2 5 // Required to generate 100 MHz clock.
+`define clkperiodby2 5 // Required to generate 100 MHz clock.
 //`include ‘romc_banno.v’ // Design file is romc.v and back annotated file is
 // romc_banno.v
 module romc_test ( 	dout1,
