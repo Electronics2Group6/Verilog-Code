@@ -1,4 +1,4 @@
-Matlab-Simulation
+Memory Design
 =================
 
-This code is used in order to simulate the DCTQ.
+This code is used to simulate memory.
