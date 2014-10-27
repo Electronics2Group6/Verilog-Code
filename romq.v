@@ -1,29 +1,29 @@
 /* ROMQ Design. 
  This code can be put in a file named ?romq.v?. 
 This ROM stores the inverse of quantization values (8 bits, unsigned). 
-Although organized as 8 × 64 bits, it is byte-addressed (64 × 8 bits) while 
+Although organized as 8 Ã— 64 bits, it is byte-addressed (64 Ã— 8 bits) while 
 reading. 
 */ 
 
 module romq (clk, a, d); 
- input clk; // Declare I/Os. 
- input [5:0] a; //a is the 6 bit input address bus 
- output [7:0] d; //d is the 8 bit output data bus
- reg [7:0] d; // Declare as the register so it can be changed quickly. 
- wire [7:0] d_next ; // Declare as the wire to send data out 
+ input           clk ; // Declare I/Os. 
+ input   [5:0]   a ; //a is the 6 bit input address bus 
+ output  [7:0]   d ; //d is the 8 bit output data bus
+ reg     [7:0]   d ; // Declare as the register so it can be changed quickly. 
+ wire    [7:0]   d_next ; // Declare as the wire to send data out 
  
- reg [63:0] mem [7:0] ; // ROM organized as 8x64 
- reg [7:0] byte_data [7:0] ; // bits, but read byte-by-byte.
+ reg     [63:0]  mem        [7:0] ; // ROM organized as 8x64 
+ reg     [7:0]   byte_data  [7:0] ; // bits, but read byte-by-byte.
   
- wire [63:0] mem_data ; // Declare ?assign? outputs as wire. 
- wire [63:0] loc0 ; 
- wire [63:0] loc1 ; 
- wire [63:0] loc2 ; 
- wire [63:0] loc3 ; 
- wire [63:0] loc4 ; 
- wire [63:0] loc5 ; 
- wire [63:0] loc6 ; 
- wire [63:0] loc7 ; 
+ wire    [63:0]  mem_data ; // Declare ?assign? outputs as wire. 
+ wire    [63:0]  loc0 ; 
+ wire    [63:0]  loc1 ; 
+ wire    [63:0]  loc2 ; 
+ wire    [63:0]  loc3 ; 
+ wire    [63:0]  loc4 ; 
+ wire    [63:0]  loc5 ; 
+ wire    [63:0]  loc6 ; 
+ wire    [63:0]  loc7 ; 
  //Actual data for the memory to save
  assign loc0 = 64'hFF806C5D4F4C473C ; 
  assign loc1 = 64'h80805D554C473C37 ; 
@@ -53,19 +53,20 @@ end
 //Choose byte_data based on the LSB 3 bit bus of 'a'. 
 always @ (mem_data) 
 begin 
-byte_data [0] = mem_data [63:56] ; // Swap MSB and LSB because of raster scan format
-byte_data [1] = mem_data [55:48] ; 
-byte_data [2] = mem_data [47:40] ; 
-byte_data [3] = mem_data [39:32] ; 
-byte_data [4] = mem_data [31:24] ; 
-byte_data [5] = mem_data [23:16] ; 
-byte_data [6] = mem_data [15:8] ; 
-byte_data [7] = mem_data [7:0] ;  
+ byte_data [0] = mem_data [63:56] ; // Swap MSB and LSB because of raster scan format
+ byte_data [1] = mem_data [55:48] ; 
+ byte_data [2] = mem_data [47:40] ; 
+ byte_data [3] = mem_data [39:32] ; 
+ byte_data [4] = mem_data [31:24] ; 
+ byte_data [5] = mem_data [23:16] ; 
+ byte_data [6] = mem_data [15:8] ; 
+ byte_data [7] = mem_data [7:0] ;  
 end 
 
 //To be performed when an address is called
-assign mem_data = mem [a[5:3]] ; // Get 64 bits data. 
-assign d_next = byte_data [a[2:0]] ; // Get byte data. 
+assign mem_data = mem       [a[5:3]] ; // Get 64 bits data. 
+assign d_next   = byte_data [a[2:0]] ; // Get byte data. 
+
 always @ (posedge clk) 
- d <= d_next ; // Register byte data. 
+  d <= d_next ; // Register byte data. 
 endmodule 
