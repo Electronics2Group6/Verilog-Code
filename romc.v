@@ -11,6 +11,7 @@ module romc ( 	clk,
 		output	[63:0] 	dout2;
 		
 		reg 	  [63:0] 	dout1_next;
+		reg 	  [63:0] 	dout2_next;
 		reg 	  [63:0] 	dout1_reg1;
 		reg 	  [63:0] 	dout2_reg1;
 		reg 	  [63:0] 	dout1;
