@@ -1,5 +1,0 @@
-On Monday 10/20, the group listened to the DCTQ lecture.
-
-The group met up on 10/25 in order to set up the repository and start coding the matlab simulation for the DCTQ.
-
-On Saturday 10/25 the group worked on debugging the code and discovering the upper triangular function to substitute for the current functionality in the pruning function.
