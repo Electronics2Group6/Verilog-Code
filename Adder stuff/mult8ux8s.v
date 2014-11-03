@@ -12,44 +12,47 @@ input [7:0] n2;
 output [15:0] result;
 
 //wire declarations
-wire nlorn2z;
+reg nlorn2z;
 
-wire [7:0] p1;
-wire [7:0] p2;
-wire [7:0] p3;
-wire [7:0] p4;
-wire [7:0] p5;
-wire [7:0] p6;
-wire [7:0] p7;
-wire [7:0] p8;
+reg [7:0] p1;
+reg [7:0] p2;
+reg [7:0] p3;
+reg [7:0] p4;
+reg [7:0] p5;
+reg [7:0] p6;
+reg [7:0] p7;
+reg [7:0] p8;
 
-wire [4:0] s11a;
-wire [4:0] s12a;
-wire [4:0] s13a;
-wire [4:0] s14a;
+reg [4:0] s11a;
+reg [4:0] s12a;
+reg [4:0] s13a;
+reg [4:0] s14a;
 
-wire [4:0] s11b;
-wire [4:0] s12b;
-wire [4:0] s13b;
-wire [4:0] s14b;
+reg [4:0] s11b;
+reg [4:0] s12b;
+reg [4:0] s13b;
+reg [4:0] s14b;
 
-wire [9:0] s11;
-wire [9:0] s12;
-wire [9:0] s13;
-wire [9:0] s14;
+reg [9:0] s11;
+reg [9:0] s12;
+reg [9:0] s13;
+reg [9:0] s14;
 
-wire [5:0] s21a;
-wire [5:0] s22a;
+reg [5:0] s21a;
+reg [5:0] s22a;
 
-wire [11:0] s21b;
-wire [11:0] s22b;
+reg [11:0] s21;
+reg [11:0] s22;
 
-wire [6:0] s31a;
-wire [6:0] s31b;
+reg [5:0] s21b;
+reg [5:0] s22b;
 
-wire [14:0] s31;
+reg [6:0] s31a;
+reg [6:0] s31b;
 
-wire [15:0] res;
+reg [14:0] s31;
+
+reg [15:0] res;
 
 //register declarations
 reg [7:0] n2_mag;
@@ -91,6 +94,7 @@ reg [7:0] p4_reg2;
 reg [7:0] p5_reg2;
 reg [7:0] p6_reg2;
 reg [7:0] p7_reg2;
+reg [7:0] p8_reg2;
 
 reg [9:0] s11_reg3;
 reg [9:0] s12_reg3;
@@ -125,9 +129,8 @@ begin
 		n2_mag = n2[7:0];
 	else
 		n2_mag = ~n2[7:0] +1;
-	end
 	
-	assign nlorn2z = ((n1 == 7'b0)||(n2 == 7'b0) ? 1'b1:1'b0;
+	assign nlorn2z = ((n1 == 7'b0)||(n2 == 7'b0) ? 1'b1:1'b0);
 	//If n1 or n2 is zero, make final result + 0
 	
 	assign p1 = n1[7:0] & {8{n2_mag[0]}};
@@ -157,10 +160,10 @@ begin
 	assign s14 = {s14b,s14a_reg2[3:0],p1_reg2[0]};
 	
 	assign s21a = s11_reg3[6:2] + s12_reg3[4:0];
-	assign s21b = {2'b0,s11_reg4[9:7] + s12_reg[9:5] + s21a_reg4[5];
+	assign s21b = {2'b0,s11_reg4[9:7] + s12_reg4[9:5] + s21a_reg4[5]};
 	
 	assign s22a = s13_reg3[6:2] + s14_reg3[4:0];
-	assign s22b = {2'b0,s13_reg4[9:7] + s14_reg[9:5] + s21a_reg4[5];
+	assign s22b = {2'b0,s13_reg4[9:7] + s14_reg4[9:5] + s21a_reg4[5]};
 	
 	assign s21 = {s21b[4:0],s21a_reg4[4:0],s11_reg4[1:0]};
 	assign s22 = {s22b[4:0],s22a_reg4[4:0],s13_reg4[1:0]};
@@ -170,10 +173,10 @@ begin
 	
 	//third stage MSB
 	
-	assign s31 = {s31b[4:0],s31a_reg6[5:0] s21_reg6[3:0]};
+	assign s31 = {s31b[4:0],s31a_reg6[5:0], s21_reg6[3:0]};
 	
 	
-	assign res = (n2_reg7) ? {1'b1,(~s31_reg7 + 1'b1}:{1'b0,s31_reg7;
+	assign res = (n2_reg7) ? {1'b1,(~s31_reg7 + 1'b1)}:{1'b0,s31_reg7};
 	
 end
 
@@ -195,11 +198,12 @@ begin
 end
 	
 always @ (posedge clk)
+begin
 //second pipeline register
 	
 	s11a_reg2 <= s11a;
 	s12a_reg2 <= s12a;
-	s13a_reg2 <= s14a;
+	s13a_reg2 <= s13a;
 	s14a_reg2 <= s14a;
 	
 	p1_reg2[7:5] <= p1_reg1 [7:5];
@@ -308,7 +312,6 @@ begin
 		result <= 16'b0;
 	else
 		result <= res;
-	end
 	
 end
 
