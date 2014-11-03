@@ -19,6 +19,11 @@ mult8ux8s u1(
 			
 initial
 begin
+
+	$monitor ("time: %t, n1=%d, n2=%d,result=%d",$time,
+	n1,n2,result);
+	
+	
 	clk = 1'b0;
 	n1 = 8'h0;
 	n2 = 8'h0;
