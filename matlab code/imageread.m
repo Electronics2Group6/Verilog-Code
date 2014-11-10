@@ -7,7 +7,7 @@ for i = 0 : size*cols : rows*cols - size * cols
         
         for k = 0:1:size - 1
             for m = 0:1:size-1
-                x = [x,image(j+k*cols + m)]
+                x = [x,image(j+k*cols + m)];
             end
         end
     end

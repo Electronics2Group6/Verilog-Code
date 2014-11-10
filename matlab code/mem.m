@@ -1,7 +1,7 @@
 function mem(blk8,col,fp);
 
 for i = 1:8
-    hextr = [];
+    hexstr = [];
     for j = 1:8
         if col == 1
             num = blk8(j,i);
@@ -9,7 +9,7 @@ for i = 1:8
             num = blk8(i,j);
         end
         
-        temp = dec2hex(num,2)
+        temp = dec2hex(num,2);
         hexstr = [hexstr temp];
     end
     
