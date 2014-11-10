@@ -1,4 +1,4 @@
-function read_image(filename,rowas,cols,blksize);
+function read_image(filename,rows,cols,blksize);
 
 file_in = [filename,'.raw'];
 file_out = [filename,'.text'];
