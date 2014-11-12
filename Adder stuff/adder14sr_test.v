@@ -6,14 +6,7 @@ module adder14sr_test (dct) ;
 output 	[11:0] 	dct ;
 
 reg 			clk;
-reg 	[13:0] 	n0 ;
-reg 	[13:0] 	n1 ;
-reg 	[13:0] 	n2 ;
-reg 	[13:0] 	n3 ;
-reg 	[13:0] 	n4 ;
-reg 	[13:0] 	n5 ;
-reg 	[13:0] 	n6 ;
-reg 	[13:0] 	n7 ;
+reg 	[13:0] 	n0, n1, n2, n3, n4, n5, n6, n7 ;
 
 adder14sr u1(
 				.clk(clk),
@@ -114,7 +107,7 @@ begin
 	n6 = 14'h0 ;
 	n7 = 14'h0 ;
 	
-	#200
+	#600
 	
 	$stop ;
 	
