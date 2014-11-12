@@ -6,16 +6,9 @@ module adder12s_test(sum);
 output [14:0] sum ;
 
 reg 		clk ;
-reg [11:0] 	n0 ;
-reg [11:0] 	n1 ;
-reg [11:0] 	n2 ;
-reg [11:0] 	n3 ;
-reg [11:0] 	n4 ;
-reg [11:0] 	n5 ;
-reg [11:0] 	n6 ;
-reg [11:0] 	n7 ;
+reg [11:0] 	n0, n1, n2, n3, n4, n5, n6, n7 ;
 
-adder12 u1(	.clk(clk),
+adder12s u1(	.clk(clk),
 			.n0(n0),
 			.n1(n1),
 			.n2(n2),
