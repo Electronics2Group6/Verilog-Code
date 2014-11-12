@@ -7,7 +7,7 @@
 `define NUM_BLKS 1024 // Defines number of blocks in a frame. A 256 × 256 
  // pixel picture contains 1024 blocks. 
  // Change this for a different image size. 
-`include "dctq.v" // Design module. 
+`include "DCTQ.v" // Design module. 
 module dctq_test ; // Declare the test bench and inputs. 
 
 	reg pci_clk ; 
