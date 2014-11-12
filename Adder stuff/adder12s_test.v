@@ -1,5 +1,5 @@
 `define clkperiodby2 10
-`include "adder12s_banno.v"
+`include "adder12s.v"
 
 module adder12s_test(sum);
 

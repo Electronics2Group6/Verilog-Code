@@ -157,7 +157,7 @@ always @ (posedge clk)
 begin
 	s10_msbreg5[6:0] 	<= s10_msbreg4[6:0] ;
 	s11_msbreg5[6:0] 	<= s11_msbreg4[6:0] ;
-	s20_msbreg5cy 		<= s20_lsb[7] ;
+	s20_lsbreg5cy 		<= s20_lsb[7] ;
 	s20_lsbreg5[6:0]	<= s20_lsb[6:0] ;
 end
 

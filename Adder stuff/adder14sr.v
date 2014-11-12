@@ -143,9 +143,9 @@ begin
 	
 end
 
-assign s10_msb[7:0] {s00_msbreg3[6], s00_msbreg3[6:0]} + 
+assign s10_msb[7:0] = {s00_msbreg3[6], s00_msbreg3[6:0]} + 
 	   {s01_msbreg3[6], s01_msbreg3[6:0]} + s10_lsbreg3[8] ;
-assign s11_msb[7:0] {s02_msbreg3[6], s02_msbreg3[6:0]} + 
+assign s11_msb[7:0] = {s02_msbreg3[6], s02_msbreg3[6:0]} + 
 	   {s03_msbreg3[6], s03_msbreg3[6:0]} + s11_lsbreg3[8] ;
 	   
 always @ (posedge clk)
@@ -162,7 +162,7 @@ end
 
 assign s20_lsb[8:0] = s10_lsbreg4[7:0]+s11_lsbreg4[7:0] ;
 
-always @ (posedge)
+always @ (posedge clk)
 
 begin
 	
