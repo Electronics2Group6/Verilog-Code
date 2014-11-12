@@ -1,6 +1,6 @@
 function [x] = imageread(image, rows, cols, size)
 
-x = [];
+x = zeros(rows,cols);
 
 for i = 0 : size*cols : rows*cols - size * cols
     for j = i + 1 : size : i + cols - size + 1
