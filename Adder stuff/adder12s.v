@@ -1,24 +1,10 @@
 module adder12s (	clk,
-					n0,
-					n1,
-					n2,
-					n3,
-					n4,
-					n5,
-					n6,
-					n7,
+					n0, n1, n2, n3, n4, n5, n6, n7,
 					sum
 				) ;
 
 input			clk ;
-input	[11:0]	n0 ;
-input	[11:0]	n1 ;
-input	[11:0]	n2 ;
-input	[11:0]	n3 ;
-input	[11:0]	n4 ;
-input	[11:0]	n5 ;
-input	[11:0]	n6 ;
-input	[11:0]	n7 ;
+input	[11:0]	n0, n1, n2, n3, n4, n5, n6, n7 ;
 output	[14:0]	sum ;
 
 wire 	[7:0] 	s00_lsb ;
