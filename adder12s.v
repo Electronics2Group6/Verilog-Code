@@ -1,4 +1,4 @@
-module adder12s (	clk,
+module adder12 (	clk,
 					n0, n1, n2, n3, n4, n5, n6, n7,
 					sum
 				) ;
