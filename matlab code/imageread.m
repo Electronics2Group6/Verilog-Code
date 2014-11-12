@@ -1,4 +1,4 @@
-function [x] = imagread(image, rows, cols, size)
+function [x] = imageread(image, rows, cols, size)
 
 x = [];
 

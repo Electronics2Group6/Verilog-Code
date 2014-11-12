@@ -1,7 +1,7 @@
 function read_image(filename,rows,cols,blksize);
 
 file_in = [filename,'.raw'];
-file_out = [filename,'.text'];
+file_out = [filename,'.txt'];
 
 fp1 = fopen(file_in,'r');
 fp2 = fopen(file_out,'w');
