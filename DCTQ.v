@@ -75,7 +75,7 @@ wire [5:0] cnt4_reg;
 wire [7:0] qout;
 
 //dualram
-dualram dualram1(.clk(clk),.pci_clk(pci_clk),.rnw(rnw),.be(be),.ra(cnt1_reg[2:0]),.wa(wa),.di(di),.din_valid(din_valid),.d0(d0));
+dualram dualram1(.clk(clk),.pci_clk(pci_clk),.rnw(rnw),.be(be),.ra(cnt1_reg[2:0]),.wa(wa),.di(di),.din_valid(din_valid),.do(d0));
 
 romc romc1(.clk(clk),.addr1(cnt1_reg[5:3]),.addr2(cnt3_reg[2:0]),.dout1(d1),.dout2(d2));
 

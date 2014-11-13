@@ -1,6 +1,6 @@
 //module for each individual RAM
 
-module ram_rc(clk,pci_clk,rnw,be,ra,wa,di,din_valid,doo);
+module ram_rc(clk,pci_clk,rnw,be,ra,wa,di,din_valid,do);
 
 input clk;
 input pci_clk;
@@ -10,7 +10,7 @@ input [7:0] be;
 input [2:0] ra,wa;
 input [63:0] di;
 
-output reg [63:0] doo;
+output reg [63:0] do;
 
 //wires
 
@@ -109,11 +109,11 @@ mem[addr] <= {((be7)?di[63:56] : mem_data[63:56]),
 				((be7)?di[7:0]   : mem_data[7:0])};
 end
 
-assign do_next = (rnw) ? doo:column;
+assign do_next = (rnw) ? do:column;
 
 always@(posedge clk)
 begin
-	doo <= do_next;
+	do <= do_next;
 end
 
 endmodule
