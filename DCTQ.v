@@ -124,14 +124,14 @@ dctreg2x8xn #(11) dctreg1(
 	.qr7(qr7)
 );
 
-mult8ux8s u21(.clk(clk),.n1(qr0),.n2(d2[63:56]),.result(res1));
-mult8ux8s u22(.clk(clk),.n1(qr1),.n2(d2[55:48]),.result(res2));
-mult8ux8s u23(.clk(clk),.n1(qr2),.n2(d2[47:40]),.result(res3));
-mult8ux8s u24(.clk(clk),.n1(qr3),.n2(d2[39:32]),.result(res4));
-mult8ux8s u25(.clk(clk),.n1(qr4),.n2(d2[31:24]),.result(res5));
-mult8ux8s u26(.clk(clk),.n1(qr5),.n2(d2[23:16]),.result(res6));
-mult8ux8s u27(.clk(clk),.n1(qr6),.n2(d2[15:8]),.result(res7));
-mult8ux8s u28(.clk(clk),.n1(qr7),.n2(d2[7:0]),.result(res8));
+mult11sx8s u21(.clk(clk),.n1(qr0),.n2(d2[63:56]),.result(res1));
+mult11sx8s u22(.clk(clk),.n1(qr1),.n2(d2[55:48]),.result(res2));
+mult11sx8s u23(.clk(clk),.n1(qr2),.n2(d2[47:40]),.result(res3));
+mult11sx8s u24(.clk(clk),.n1(qr3),.n2(d2[39:32]),.result(res4));
+mult11sx8s u25(.clk(clk),.n1(qr4),.n2(d2[31:24]),.result(res5));
+mult11sx8s u26(.clk(clk),.n1(qr5),.n2(d2[23:16]),.result(res6));
+mult11sx8s u27(.clk(clk),.n1(qr6),.n2(d2[15:8]),.result(res7));
+mult11sx8s u28(.clk(clk),.n1(qr7),.n2(d2[7:0]),.result(res8));
 
 //above results are multiplied
 
