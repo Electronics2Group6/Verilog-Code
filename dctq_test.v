@@ -106,8 +106,7 @@ module dctq_test ; // Declare the test bench and inputs.
 	 wa = 0 ; 
 	 di = mem[mem_addr] ; // Inputs first row of an 
 	 // image block. 
-	 mem_addr = mem_addr + 1 ; 
-	 end 
+	 mem_addr = mem_addr + 1 ;  
 	 repeat(7) 
 	 begin 
 	 @(posedge pci_clk) ; 
@@ -134,7 +133,8 @@ module dctq_test ; // Declare the test bench and inputs.
 	 $fclose(fp1) ; 
 	 $stop ; 
 	 end 
-	end 
+	end
+	end	
 	assign stopproc =((eobcnt_reg==`NUM_BLKS-1)&&(eob== 'b1)) ? 1'b1 : 1'b0 ; 
 	 // Condition to stop DCTQ processing. 
 	always @ (posedge clk) 
